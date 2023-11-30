@@ -3,7 +3,7 @@
 // @namespace    https://dynamyc.me/
 // @version      1.0c
 // @downloadURL  https://github.com/dynamyc010/OE-IDP-Autologin/releases/latest/download/oe-idp-autologin.user.js
-// @updateURL  https://github.com/dynamyc010/OE-IDP-Autologin/releases/latest/download/oe-idp-autologin.user.js
+// @updateURL    https://github.com/dynamyc010/OE-IDP-Autologin/releases/latest/download/oe-idp-autologin.meta.js
 // @description  Automatically logs you into IDP and accepts the consent form for you, if you want it to.
 // @author       dynamyc
 // @match        https://idp.uni-obuda.hu/saml2/module.php/core/loginuserpass.php*
