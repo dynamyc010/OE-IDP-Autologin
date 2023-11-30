@@ -128,28 +128,25 @@
     /* Autologin */
 
     runAutoLogin: function () {
+      let submitButton = $("button#submit_button");
       if ($("img.erroricon").length > 0) {
-        let submitButton = $("button#submit_button");
         submitButton.text("Login (Autologin disabled)");
         return; // There's an error on the page. Don't try to log in.
       }
 
-      // Add a 5 second countdown to it, and change the button's text to match the countdown. If the user clicks on anything in the form, cancel the countdown.
-      // If the countdown reaches 0, click the button.
-      // If the user clicks the anywhere, cancel the countdown.
       $("input#username").val(autologin.data.user);
       $("input#password").val(autologin.data.password);
 
       $("body").click(function () {
         clearInterval(timer);
-        $("button#submit_button").text("Login (Autologin Cancelled)");
+        submitButton.text("Login (Autologin Cancelled)");
       });
 
-      let countdown = 5;
+      let countdown = 3;
+      submitButton.text("Logging in... (" + countdown + ")");
 
-      // Add a 5 second countdown to it, and change the button's text to match the countdown.
+      // Add a 3 second countdown to it, and change the button's text to match the countdown.
       let timer = setInterval(function () {
-        let submitButton = $("button#submit_button");
         countdown -= 1;
         if (countdown <= 0) {
           submitButton.text("Logging in...");
@@ -168,9 +165,11 @@
         button.text("Yes, continue");
       });
 
-      let countdown = 16;
-
-      // Add a 16 second countdown to it, and change the button's text to match the countdown.
+      let countdown = 15;
+      button.text(
+        "Continuing in " + countdown + "... (click anywhere to cancel timer)"
+      );
+      // Add a 15 second countdown to it, and change the button's text to match the countdown.
       let timer = setInterval(function () {
         countdown -= 1;
         if (countdown <= 0) {
@@ -220,7 +219,7 @@
       let submitButton = $("button#submit_button");
       submitButton.attr("type", "button");
       submitButton.attr("onclick", "autologin.registerLogin()");
-      submitButton.text("Login");
+      //submitButton.text("Login");
     },
   };
 
